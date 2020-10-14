@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "romeo": "nodemon index.js"
+    "romeo": "nodemon --require dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
