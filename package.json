@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "romeo": "nodemon --require dotenv/config index.js"
+    "romeo": "nodemon --require dotenv/config index.js",
+    "start":"node index.js"
   },
   "author": "",
   "license": "ISC",
