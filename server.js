@@ -13,8 +13,8 @@ server.use((err,req,res,next)=>{
 })
 server.use('/api/users',userRouter);
 server.use('/api/post', postRouter);
-server.get('/', (req, res) => {
-    res.send(`<h2>Let's do buildweek together with Romeo!</h2>`);
-  });
+// server.get('/', (req, res) => {
+//     res.send(`<h2>Let's do buildweek together with Romeo!</h2>`);
+//   });
 
 module.exports = server
