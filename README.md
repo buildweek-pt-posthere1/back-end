@@ -1,5 +1,4 @@
 # back-end
-sample:
- "username":"buildweek",
-  "password":"12345"
+https://build-week4-backend.herokuapp.com/api/users/register for signup
+https://build-week4-backend.herokuapp.com/api/users/login  for login
 
