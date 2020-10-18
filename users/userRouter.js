@@ -48,7 +48,7 @@ router.post('/login',async (req,res,next)=>{
     },process.env.JWT_SECRET)
     res.cookie("token", token)
     res.json({
-         message:`welcome back ${user.username}`,
+         message:`welcome back backend ${user.username}`,
          token:token
      })
     }catch(err){
