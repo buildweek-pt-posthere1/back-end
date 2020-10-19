@@ -2,7 +2,7 @@ const express = require('express');
 const server = express();
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
-
+const restrict = require('./restrict');
 
 const userRouter = require('./users/userRouter');
 const postRouter = require('./posts/postRouter');
@@ -16,7 +16,7 @@ server.use((err,req,res,next)=>{
   })
 })
 server.use('/api/users',userRouter);
-server.use('/api/post', postRouter);
+server.use('/api/post',restrict('basic'),postRouter);
 
 server.get('/', (req, res) => {
     res.send(`<h2>Let's do buildweek together with Romeo!</h2>`);
