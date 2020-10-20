@@ -65,6 +65,14 @@ router.get('/allusers',restrict('basic'),async (req,res,next)=>{
         next(err)
     }
    })
+   
+router.get('/:id',restrict('basic'),async (req,res,next)=>{
+    try{
+        res.status(201).json( await Users.findById(req.params.id))}
+    catch(err){
+        next(err)
+    }
+})
 
 router.get('/',(req,res)=>{
     res.send('hello new user ,you got me')
