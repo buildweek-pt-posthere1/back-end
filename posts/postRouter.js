@@ -44,6 +44,34 @@ router.put('/:id', validatePostId,(req, res) => {
     })
     .catch(err=>res.status(500).json({err:err.message}))
   });
+
+  //not working with DS
+  router.post("/:id", validatePostId, (req, res) => {
+    const sendDs = {
+        title: req.body.title,
+        text: req.body.text,
+        results: req.body.results
+    }
+
+    axios.post("https://bw3-posthere.herokuapp.com/predict", sendDs)
+        .then(sug => {
+            const sugg = sug.data
+            const userId = req.params.id;
+
+            const newPost = {
+                user: userId, title: req.body.title,
+                text: req.body.text
+            }
+            return Posts.insert(newPost)
+                .then(data => {
+
+                    res.status(201).json({ data, sugg })
+                }).catch(err => {
+                    res.status(500).json({ err, message: "Couldn't create post" })
+                })
+        })
+
+})
   
   // custom middleware
   
